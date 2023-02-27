@@ -18,7 +18,7 @@ pipeline {
         checkout scm
       }
     }
-  }
+  
     stage('Stage 2: Build Docker Image') {
       parallel {
         stage('Build Docker Image') {
@@ -31,4 +31,5 @@ pipeline {
         }
       }
     }
+  }
 }
