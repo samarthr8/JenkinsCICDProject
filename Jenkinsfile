@@ -23,6 +23,7 @@ pipeline {
       parallel {
         stage('Build Docker Image') {
           steps {
+            sh 'cd Project-Jenkins/'
             sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 609042131998.dkr.ecr.us-east-1.amazonaws.com'
             sh 'sudo docker build -t hello-nodejs .'
             sh 'sudo docker tag hello-nodejs:latest 609042131998.dkr.ecr.us-east-1.amazonaws.com/hello-nodejs:latest'
